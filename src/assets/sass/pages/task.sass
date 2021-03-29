@@ -1,0 +1,65 @@
+.tasks
+  display: flex
+  align-items: center
+  flex-direction: column
+  width: 100%
+  padding-top: 1.87rem
+
+.task
+  display: flex
+  justify-content: space-between
+  width: 60%
+  margin-top: 3.12rem
+
+.tasks__title
+  font-size: 1.12rem
+
+.task__text
+  width: 50%
+  font-size: 1.12rem
+  line-height: 1.3
+
+.task__answer,
+.task__decision
+  width: 120px
+  height: 40px
+  border-radius: 100px
+  color: #fff
+  font-size: 0.93rem
+
+.task__buttons
+  display: flex
+  justify-content: flex-end
+  column-gap: 30px
+  width: 50%
+
+.task__answer
+  background-color: #4F69C5
+
+.task__decision
+  background-color: #CD5035
+
+@media screen and (max-width: 1024px)
+  .task
+    width: 70%
+
+@media screen and (max-width: 768px)
+  .task
+    width: 80%
+
+@media screen and (max-width: 425px)
+  .task
+    flex-direction: column
+    align-items: center
+    row-gap: 20px
+
+  .task,
+  .task__text,
+  .task__buttons
+    width: 100%
+
+  .task__text
+    text-align: center
+
+  .task__buttons
+    justify-content: center

@@ -1,0 +1,31 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Canvas';
+
+block content
+    include ../includes/aside
+    .container
+        include ../includes/header
+        aside.tools#tools1
+            button.tools__item
+                img(src="assets/images/pen.png", alt="Pen")#pen
+            button.tools__item 
+                img(src="assets/images/eraser.png", alt="Eraser")#eraser
+            button.tools__item 
+                img(src="assets/images/palette.png", alt="Palette")#palette
+        aside.tools#tools2
+            button.tools__item 
+                img(src="assets/images/oblique.png", alt="Oblique")#oblique
+            button.tools__item 
+                img(src="assets/images/vertical.png", alt="Vertical")#vertical
+            button.tools__item 
+                img(src="assets/images/horizontal.png", alt="Horizontal")#horizontal
+            button.tools__item 
+                img(src="assets/images/save.png", alt="Save")#save
+            button.tools__item 
+                img(src="assets/images/reproduce.png", alt="Reproduce")#reproduce
+            button.tools__item 
+                img(src="assets/images/delete.png", alt="Delete")#clear
+    canvas#canvas
+    input(type="color")#color

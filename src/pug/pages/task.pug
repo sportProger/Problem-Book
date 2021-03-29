@@ -1,0 +1,27 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Task';
+
+block content
+    include ../includes/aside
+    .container
+        include ../includes/header
+        .tasks
+            .tasks__title Теорема пифагора
+            .task#task_1
+                p.task__text
+                    span.task__count 1.
+                    |  Диагонали ромба равны 6 см и 8 см.
+                    | Вычисли сторону ромба.
+                .task__buttons
+                    button.task__answer Ответить
+                    button.task__decision Решение
+            .task#task_2
+                p.task__text
+                    span.task__count 2.
+                        |  Катеты прямоугольного треугольника равны 3 см и 4 см.
+                        | Найди гипотенузу.
+                .task__buttons
+                    button.task__answer Ответить
+                    button.task__decision Решение

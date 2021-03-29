@@ -1,0 +1,13 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Formulas';
+
+block content
+    include ../includes/aside
+    .container
+        include ../includes/header
+        .formulas
+            ol.list 
+                li.list__item a^2 + b^2 = c^2 - теорема пифогора
+                li.list__item (a + b) / 2 * h - площадь трапеции
