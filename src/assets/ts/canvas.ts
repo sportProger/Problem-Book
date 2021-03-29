@@ -63,6 +63,8 @@ let earaser = (x: number, y: number) => {
 }
 
 let clear = () => {
+    cords = []
+    localStorage.setItem('coords', JSON.stringify([]))
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
 }
 
