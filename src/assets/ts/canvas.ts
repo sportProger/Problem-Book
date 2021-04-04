@@ -78,12 +78,16 @@ let reproduce = () => {
             }
             else {
                 let
-                    crd: Array<any> = cords.shift(),
+                    crd: any = cords.shift(),
                     x: number = crd[0],
                     y: number = crd[1],
                     clr: string = crd[2],
                     lw: number = crd[3],
                     ef: boolean = crd[4];
+
+                if (crd === 'up') {
+                    ctx.beginPath()
+                }
                 
                 (ef) ? ctx.globalCompositeOperation = 'destination-out': ctx.globalCompositeOperation = 'source-over'
 
