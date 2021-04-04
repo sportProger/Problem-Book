@@ -101,7 +101,7 @@ let reproduce = () => {
                 ctx.beginPath()
                 ctx.moveTo(x, y)
             }
-        }, 0)
+        }, 25)
     }
 }
 
@@ -142,35 +142,55 @@ window.onresize = () => {
     canvas.height = window.innerHeight
 }
 
-canvas.onmouseup = () => {
+canvas.addEventListener('mouseup', () => {
     down = false
     ctx.beginPath()
     cords.push('up')
-}
+})
 
-canvas.onmousedown = e => {
+canvas.addEventListener('touchend', () => {
+    down = false
+    ctx.beginPath()
+    cords.push('up')
+})
+
+canvas.addEventListener('mousedown', e => {
     if (verticalFlag) fx = e.clientX
     if (horizontalFlag) fy = e.clientY
     down = true
-}
+})
 
-canvas.onmousemove = e => {
+canvas.addEventListener('touchstart', e => {
+    if (verticalFlag) fx = e.changedTouches[0].clientX
+    if (horizontalFlag) fy = e.changedTouches[0].clientY
+    down = true
+})
+
+let canvasMove = e => {
     if (down && penFlag && !horizontalFlag && !verticalFlag) {
-        pen(e.clientX, e.clientY)
+        pen(e.clientX || e.changedTouches[0].clientX, e.clientY || e.changedTouches[0].clientY)
     }
 
     if (down && penFlag && horizontalFlag) {
-        pen(e.clientX, fy)
+        pen(e.clientX || e.changedTouches[0].clientX, fy)
     }
 
     if (down && penFlag && verticalFlag) {
-        pen(fx, e.clientY)
+        pen(fx, e.clientY || e.changedTouches[0].clientY)
     }
 
     if (down && earaserFlag) {
-        earaser(e.clientX, e.clientY)
+        earaser(e.clientX || e.changedTouches[0].clientX, e.clientY || e.changedTouches[0].clientY)
     }
 }
+
+canvas.addEventListener('mousemove', e => {
+    canvasMove(e)
+})
+
+canvas.addEventListener('touchmove', e => {
+    canvasMove(e)
+})
 
 tools[0].addEventListener('click', e => {
     switch(e.target.id) {
