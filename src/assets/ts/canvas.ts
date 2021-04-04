@@ -177,7 +177,7 @@ tools[0].addEventListener('click', e => {
         case 'pen':
             penFlag = true
             earaserFlag = false
-            break
+            break 
         case 'eraser':
             penFlag = false
             earaserFlag = true
